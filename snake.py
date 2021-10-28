@@ -1,6 +1,5 @@
 from turtle import *
 import random
-colors = ["red","green","yellow","blue","orange","purple"]
 class Snake:
 
     def __init__(self) -> None:
@@ -19,12 +18,6 @@ class Snake:
         new.shape("square")
         new.goto(pos)
         self.segs.append(new)
-    
-    def change_color(self):
-        now_col = random.choice(colors)
-        for seg in self.segs:
-            seg.color(now_col)
-        
     
     def extend(self):
         self.create_snake(self.segs[-1].position())

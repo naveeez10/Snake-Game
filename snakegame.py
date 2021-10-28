@@ -31,11 +31,13 @@ while game_is_on:
     snake.move_forward()
 
     if snake.head.distance(food) < 20:
+        now_col = food.color()[0]
         food.refresh()
         scoree.score += 1
         scoree.ref()
         snake.extend()
-        snake.change_color()
+        for segs in snake.segs:
+            segs.color(now_col)
 
     if snake.head.xcor() >= 300 or snake.head.xcor() <= -300 or snake.head.ycor() >= 300 or snake.head.ycor() <= -300:
         game_over = Turtle()
